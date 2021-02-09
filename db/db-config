@@ -1,0 +1,6 @@
+data source: mysql
+host: localhost
+port: 6604
+user: root
+password: root
+database: userdb

@@ -1,0 +1,2 @@
+docker pull mysql/mysql-server:latest
+docker run --detach --name=mysql-liquibase --env="MYSQL_ROOT_PASSWORD=root" -e MYSQL_ROOT_HOST=% --publish 6604:3306 -e MYSQL_DATABASE=userdb -d mysql/mysql-server:latest

@@ -1,0 +1,81 @@
+databaseChangeLog:
+  - logicalFilePath: db/changelog/db.changelog-master.yaml
+  - changeSet:
+      id: 1
+      author: evgen_smirnov
+      changes:
+        - createTable:
+            tableName: user
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: username
+                  type: varchar(50)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: password
+                  type: varchar(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: first_name
+                  type: varchar(50)
+              - column:
+                  name: last_name
+                  type: varchar(50)
+              - column:
+                  name: email
+                  type: varchar(50)
+  - changeSet:
+      id: 2
+      author: evgen_smirnov
+      comment: "Create 2 users"
+      changes:
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: username
+                  value: "evgen"
+              - column:
+                  name: password
+                  value: "pass-test"
+              - column:
+                  name: first_name
+                  value: "evgeniy"
+              - column:
+                  name: last_name
+                  value: "smirnov"
+              - column:
+                  name: email
+                  value: "evgen@mail.ru"
+        - insert:
+            tableName: user
+            columns:
+              - column:
+                  name: username
+                  value: "katener"
+              - column:
+                  name: password
+                  value: "neratova2020"
+              - column:
+                  name: first_name
+                  value: "kate"
+              - column:
+                  name: last_name
+                  value: "neratova"
+              - column:
+                  name: email
+                  value: "kate@mail.ru"
+      rollback:
+        - delete:
+            tableName: user
+            where: username in ('evgen', 'katener')
