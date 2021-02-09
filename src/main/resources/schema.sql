@@ -1,5 +1,3 @@
--- use it if spring.jpa.hibernate.ddl-auto=none
--- rename file to schema.sql
 create table if not exists user
 (
     id bigint auto_increment primary key,
