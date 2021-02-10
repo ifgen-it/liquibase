@@ -79,3 +79,9 @@ databaseChangeLog:
         - delete:
             tableName: user
             where: username in ('evgen', 'katener')
+  - include:
+      file: db.changelog-20210210-142450097.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: db.changelog-20210210-145627343.yaml
+      relativeToChangelogFile: true

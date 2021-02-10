@@ -1,0 +1,10 @@
+# make difference between databases to make changelog
+mvn clean install liquibase:diff -DskipTests=true
+
+# update database according to liquibase changelogs
+mvn liquibase:update
+
+# make rollback from changelog
+mvn liquibase:rollback -Dliquibase.rollbackTag=db_tag
+mvn liquibase:rollback -Dliquibase.rollbackCount=1
+mvn liquibase:rollback "-Dliquibase.rollbackDate=Jun 03, 2017"

@@ -1,0 +1,12 @@
+databaseChangeLog:
+- logicalFilePath: db/changelog/db.changelog-20210210-142450097.yaml
+- changeSet:
+    id: 1612967099479-1
+    author: evgen_smirnov (generated)
+    changes:
+    - addNotNullConstraint:
+        columnDataType: varchar(255)
+        columnName: email
+        tableName: user
+        validate: true
+
